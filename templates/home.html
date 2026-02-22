@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5 bg-white rounded border shadow-sm">
+    {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.name }}!</h1>
+        <p class="lead">You have successfully logged in.</p>
+        <hr>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Phone:</strong> {{ user.phone_number }}</p>
+    {% else %}
+        <h1>Welcome, Guest!</h1>
+        <p class="lead">Please login to see your profile.</p>
+        <a href="{% url 'login' %}" class="btn btn-primary">Login Now</a>
+    {% endif %}
+</div>
+{% endblock %}
